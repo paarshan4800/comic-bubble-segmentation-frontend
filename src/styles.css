@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: primaryFont;
+  src: url(./assets/fonts/Oswald-Regular.ttf);
+}
+
+body {
+  background-color: #121212;
+  font-family: primaryFont;
+}

@@ -1,0 +1,21 @@
+<div class="wrapper">
+
+  <div class="preview-container">
+    <img [src]="imageSrc || '../../assets/images/upload-placeholder.png'" alt="" class="placeholder-preview"
+      (click)="fileInput.click()">
+  </div>
+
+  <div class="button-container">
+    <label for="choose-file" class="custom-file-upload choose-file-class">
+      <input id="choose-file" type="file" (change)="onFileChanged($event)" #fileInput>
+      Select File
+    </label>
+
+    <label for="file-upload" class="custom-file-upload file-upload-class">
+      <button id="file-upload" (click)="uploadImage()" class="btn">Upload Image</button>
+      Upload
+    </label>
+
+  </div>
+
+</div>

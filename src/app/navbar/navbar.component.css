@@ -1,0 +1,53 @@
+/* Navbar Side Container */
+.nav-side {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 0px;
+    background-color: orange;
+    z-index: 1;
+    padding-top: 100px;
+    overflow-x: hidden;
+    transition: all .5s;
+}
+
+/* Navigation Links */
+.nav-side a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 24px;
+    letter-spacing: 1px;
+    color: white;
+    display: block;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Close button */
+.nav-side .close-btn {
+    position: absolute;
+    top: 0px;
+    right: 45px;
+    font-size: 50px !important;
+    cursor: pointer;
+    color: white;
+}
+
+/* Links and close button hover */
+.close-btn:hover,.nav-side a:hover {
+    color: black !important;
+}
+
+/* Hamburger */
+i {
+    cursor: pointer !important;
+    color: orange;
+    font-size: 25px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+i:hover {
+    transform: scale(1.3);
+}

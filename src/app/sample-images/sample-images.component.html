@@ -1,0 +1,10 @@
+<div class="wrapper">
+  <div *ngIf="!sampleImages">
+    <h1 style="color: white;">Loading...</h1>
+  </div>
+  <div class="image-container">
+    <img *ngFor="let image of sampleImages" [src]="image" alt="" width="200px" height="300px"
+      (click)="clickedImage($event)" class="sampleImage">
+  </div>
+</div>
+

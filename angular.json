@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "comic-bubble-segmentation-frontend"
+    }
+  },
+  "defaultProject": "comic-bubble-segmentation-frontend",
+  "cli": {
+    "analytics": "8835bf76-a180-4217-abd4-b70200b02838"
+  }
 }
