@@ -18,5 +18,14 @@ export class ApiService {
     return this._http.post(this.baseURL + "/image_upload", data)
   }
 
+  api_userSelectSampleImage(data) {
+    return this._http.post(this.baseURL + "/user-sample-images", data)
+  }
+
+  api_segment(data) {
+    console.log(data, "SEGMENT")
+    return this._http.post(this.baseURL + "/segment", data)
+  }
+
 
 }

@@ -1,5 +1,7 @@
 .wrapper {
   display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .image-container {
@@ -13,8 +15,12 @@
   height: 400px;
   margin: 20px;
   cursor: pointer;
+  border: 1px solid white;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .sampleImage:hover {
   opacity: 0.5;
 }
+

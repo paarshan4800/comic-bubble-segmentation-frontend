@@ -1,1 +1,29 @@
-<p>output works!</p>
+<div class="wrapper">
+  <div class="output-wrapper">
+
+    <!-- Input Image -->
+    <div class="input-image-wrapper">
+      <app-heading [title]="'Input Image'"></app-heading>
+      <img [src]="inputImage" alt="" class="originalImage image-border">
+    </div>
+
+    <!-- Panels -->
+    <div class="panels-wrapper">
+      <app-heading [title]="'Panels'"></app-heading>
+      <div class="image-container">
+        <img *ngFor="let panel of panels" [src]="panel.src" alt="" (click)="clickedPanel(panel.fileName)"
+          class="sampleImage image-border">
+      </div>
+    </div>
+
+    <!-- Localized Bubbles -->
+
+    <div *ngIf="showBubblesText" class="bubbles-text-container" id="bubbles-text">
+      <app-bubbles-text [loader]="localized_bubbles_loader" [localized_bubbles]="localized_bubbles"
+        [chosenPanel]="chosenPanel"></app-bubbles-text>
+    </div>
+
+
+  </div>
+
+</div>

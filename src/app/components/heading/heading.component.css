@@ -1,0 +1,15 @@
+.heading {
+  font-family: primaryFont;
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 1.5px;
+}
+
+.heading-wrapper {
+  text-align: center;
+}
+
+.heading-span {
+    border-bottom: 1px solid whitesmoke;
+    padding-bottom: 5px;
+}

@@ -1,10 +1,12 @@
 <div class="wrapper">
-  <div *ngIf="!sampleImages">
-    <h1 style="color: white;">Loading...</h1>
+  <div>
+    <app-heading [title]="'Sample Images'"></app-heading>
   </div>
-  <div class="image-container">
-    <img *ngFor="let image of sampleImages" [src]="image" alt="" width="200px" height="300px"
-      (click)="clickedImage($event)" class="sampleImage">
+  <div *ngIf="loader">
+    <app-loader></app-loader>
+  </div>
+  <div *ngIf="!loader" class="image-container">
+    <img *ngFor="let image of sampleImages" [src]="image.src" alt="" width="200px" height="300px"
+      (click)="clickedImage(image.fileName)" class="sampleImage">
   </div>
 </div>
-

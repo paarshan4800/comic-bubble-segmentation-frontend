@@ -1,7 +1,10 @@
-<div class="wrapper">
+<div *ngIf="loader">
+  <app-loader></app-loader>
+</div>
+<div *ngIf="!loader" class="wrapper">
 
   <div class="preview-container">
-    <img [src]="imageSrc || '../../assets/images/upload-placeholder.png'" alt="" class="placeholder-preview"
+    <img [src]="imageSrc || '../../assets/images/upload-placeholder.png'" alt="" class="placeholder-preview image-border"
       (click)="fileInput.click()">
   </div>
 

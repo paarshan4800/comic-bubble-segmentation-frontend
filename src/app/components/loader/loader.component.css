@@ -1,0 +1,15 @@
+.loader-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 100vw;
+    opacity: 1;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    color: white;
+    text-align: center;
+    z-index: 10;
+    background-color: black;
+}

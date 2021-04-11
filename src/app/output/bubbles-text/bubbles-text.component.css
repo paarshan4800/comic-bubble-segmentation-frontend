@@ -1,0 +1,28 @@
+.localized-bubbles-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid white;
+  border-radius: 5px;
+  margin: 0 50px 50px 50px;
+  padding: 25px 0px;
+}
+
+.localized-bubbles  {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-around !important;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.image {
+  width: 400px;
+  height: 600px;
+}
+
+.right-arrow {
+    font-size: 50px;
+    color: white;
+    margin: 0 50px;
+}

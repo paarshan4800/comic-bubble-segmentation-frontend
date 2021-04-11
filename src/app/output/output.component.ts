@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ApiService } from '../services/api.service';
+import { DataShareService } from '../services/data-share.service';
 
 @Component({
   selector: 'app-output',
@@ -8,15 +10,63 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class OutputComponent implements OnInit {
 
-  userFile;
+  panels = Array<PanelImage>();
+  inputImage: String;
+  localized_bubbles: String;
+  localized_bubbles_loader: Boolean;
+  showBubblesText: Boolean;
+  chosenPanel: String;
 
   constructor(
-    private _route: ActivatedRoute
+    private router: Router,
+    private _dataShare: DataShareService,
+    private _api: ApiService
   ) { }
 
-  ngOnInit(): void {
-    this.userFile = this._route.snapshot.paramMap.get("image")
-    console.log(this.userFile)
+  scrollDown() {
+    let el = document.getElementById("bubbles-text");
+    el.scrollIntoView({ behavior: "smooth" });
   }
 
+  ngOnInit(): void {
+    this.localized_bubbles_loader = false;
+    this.showBubblesText = false;
+    let temp = this._dataShare.getPanels()
+
+    if (temp === undefined) {
+      this.router.navigateByUrl("/")
+    }
+    else {
+      this.inputImage = "http://localhost:5000/fetch-images?filepath=" + temp.originalInput
+      for (let i = 0; i < temp.panels.length; i++) {
+        this.panels.push({
+          src: "http://localhost:5000/fetch-images?filepath=" + temp.panels[i],
+          fileName: temp.panels[i]
+        })
+      }
+    }
+
+  }
+
+  clickedPanel(filename) {
+    this.showBubblesText = true;
+    this.localized_bubbles_loader = true;
+
+    this._api.api_segment({ "filename": filename }).subscribe((data) => {
+      this.scrollDown()
+      this.localized_bubbles = "http://localhost:5000/fetch-images?filepath=" + data["localized_bubbles"]
+      this.chosenPanel = "http://localhost:5000/fetch-images?filepath=" + data["chosenPanel"]
+      this.localized_bubbles_loader = false;
+    },
+      (error) => {
+        console.log(error)
+      })
+
+  }
+
+}
+
+interface PanelImage {
+  src: String;
+  fileName: String;
 }

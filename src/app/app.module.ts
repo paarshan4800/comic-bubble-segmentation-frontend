@@ -10,6 +10,9 @@ import { OutputComponent } from './output/output.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from "@angular/common/http";
 import { ServerDirectoryComponent } from './server-directory/server-directory.component';
+import { BubblesTextComponent } from './output/bubbles-text/bubbles-text.component';
+import { HeadingComponent } from './components/heading/heading.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { ServerDirectoryComponent } from './server-directory/server-directory.co
     HomepageComponent,
     SampleImagesComponent,
     OutputComponent,
-    ServerDirectoryComponent
+    ServerDirectoryComponent,
+    BubblesTextComponent,
+    HeadingComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

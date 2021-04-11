@@ -3,6 +3,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../services/api.service';
+import { DataShareService } from '../services/data-share.service';
 
 @Component({
   selector: 'app-homepage',
@@ -14,24 +15,20 @@ export class HomepageComponent implements OnInit {
   imageSrc;
   userFile;
   imageSelected;
-  state;
-  base64;
+  loader: Boolean;
 
-
-  @ViewChild("fileInput", { read: ElementRef }) fileInput: ElementRef
 
   constructor(
-    private _http: HttpClient,
-    private _route: ActivatedRoute,
-    private _sanitizer: DomSanitizer,
-    private _router: Router,
-    private _api: ApiService
+    private _api: ApiService,
+    private _dataShare: DataShareService,
+    private _router: Router
   ) {
 
 
   }
 
   ngOnInit(): void {
+    this.loader = false;
   }
 
 
@@ -42,27 +39,28 @@ export class HomepageComponent implements OnInit {
   }
 
   onFileChanged(event) {
-    this.userFile = event.target.files[0];
-    this.imageSelected = this.userFile.name;
+
     if (event.target.files && event.target.files[0]) {
+      const file = event.target.files[0];
+      this.userFile = file
       const reader = new FileReader();
-      reader.onload = (e: any) => {
-        this.imageSrc = e.target.result;
-        reader.readAsDataURL(event.target.files[0])
-      }
+      reader.onload = e => this.imageSrc = reader.result;
+
+      reader.readAsDataURL(file);
     }
-
-
 
   }
 
 
   uploadImage() {
+    this.loader = true;
     const uploadData = new FormData()
     uploadData.append("image", this.userFile);
 
     this._api.api_uploadComicImage(uploadData).subscribe((data) => {
-      console.log(data, "RESPONSE FROM SERVER")
+      this._dataShare.setPanels(data["inputImage"], data["panels"])
+      this.loader = false;
+      this._router.navigateByUrl("/output")
     },
       (error) => {
         console.log(error)
