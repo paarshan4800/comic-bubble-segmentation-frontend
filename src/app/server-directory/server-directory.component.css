@@ -1,0 +1,8 @@
+.content {
+    height: 0px;
+    overflow: hidden;
+}
+
+.accordion.active .content {
+    height: auto;
+}

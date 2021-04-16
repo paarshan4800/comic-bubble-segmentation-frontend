@@ -23,8 +23,11 @@ export class ApiService {
   }
 
   api_segment(data) {
-    console.log(data, "SEGMENT")
     return this._http.post(this.baseURL + "/segment", data)
+  }
+
+  api_getServerDirectory() {
+    return this._http.get(this.baseURL + "/files/output/directories")
   }
 
 

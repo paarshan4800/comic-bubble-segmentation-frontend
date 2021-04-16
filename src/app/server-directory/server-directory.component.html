@@ -1,1 +1,22 @@
-<p>server-directory works!</p>
+<div class="directory-wrapper" style="color: white;">
+  <div *ngFor="let directory of data.directories" class="accordion" #el>
+    <div class="label">
+      {{directory.folderName}}
+    </div>
+    <div class="content">
+      <div *ngFor="let panel of directory.folders">
+        {{panel.folderName}}
+        <p>Segmented Bubbles</p>
+        <p *ngFor="let segBub of panel.segmentedBubbles">
+          {{segBub}}
+        </p>
+        <p *ngFor="let file of panel.files">
+          {{file}}
+        </p>
+      </div>
+      <p *ngFor="let file of directory.files">
+        {{file}}
+      </p>
+    </div>
+  </div>
+</div>
