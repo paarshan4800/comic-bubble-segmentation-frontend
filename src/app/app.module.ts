@@ -8,11 +8,15 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { SampleImagesComponent } from './sample-images/sample-images.component';
 import { OutputComponent } from './output/output.component';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
 import { ServerDirectoryComponent } from './server-directory/server-directory.component';
 import { BubblesTextComponent } from './output/bubbles-text/bubbles-text.component';
 import { HeadingComponent } from './components/heading/heading.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogComponent } from './server-directory/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -24,15 +28,18 @@ import { LoaderComponent } from './components/loader/loader.component';
     ServerDirectoryComponent,
     BubblesTextComponent,
     HeadingComponent,
-    LoaderComponent
+    LoaderComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

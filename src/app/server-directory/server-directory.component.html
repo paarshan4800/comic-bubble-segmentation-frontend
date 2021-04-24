@@ -1,22 +1,18 @@
-<div class="directory-wrapper" style="color: white;">
-  <div *ngFor="let directory of data.directories" class="accordion" #el>
-    <div class="label">
-      {{directory.folderName}}
+<div class="directory-wrapper" style="color: white">
+  <div class="current-directory-path">
+    <p class="current-path-text">
+      {{ formattedCurrentDirectoryPath }}
+      <i *ngIf="stack.getLength() > 0" class="fa fa-undo goBackIcon" (click)="goBack()"></i>
+    </p>
+  </div>
+  <div class="directory-content-wrapper">
+    <div *ngFor="let folder of folders" class="folderWrapper" (click)="clickedFolder('//' + folder)">
+      <i class="fa fa-folder icon"></i>
+      <p>{{ folder }}</p>
     </div>
-    <div class="content">
-      <div *ngFor="let panel of directory.folders">
-        {{panel.folderName}}
-        <p>Segmented Bubbles</p>
-        <p *ngFor="let segBub of panel.segmentedBubbles">
-          {{segBub}}
-        </p>
-        <p *ngFor="let file of panel.files">
-          {{file}}
-        </p>
-      </div>
-      <p *ngFor="let file of directory.files">
-        {{file}}
-      </p>
+    <div *ngFor="let file of files" class="fileWrapper" (click)="clickedFile('//' + file)">
+      <i class="fa fa-image icon"></i>
+      <p>{{ file }}</p>
     </div>
   </div>
 </div>

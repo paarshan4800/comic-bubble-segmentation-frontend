@@ -13,3 +13,12 @@ body {
   padding: 15px;
   border-radius: 5px;
 }
+
+mat-dialog-container {
+  background-color: black !important;
+}
+
+.dialogBG {
+  background-color: #e6e6e6;
+  opacity: 0.2 !important;
+}

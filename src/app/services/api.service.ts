@@ -2,33 +2,35 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
+  baseURL = 'http://localhost:5000';
 
-  baseURL = "http://localhost:5000";
-
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient) {}
 
   api_getSampleImages() {
-    return this._http.get(this.baseURL + "/sample-images")
+    return this._http.get(this.baseURL + '/sample-images');
   }
 
   api_uploadComicImage(data: FormData) {
-    return this._http.post(this.baseURL + "/image_upload", data)
+    return this._http.post(this.baseURL + '/image_upload', data);
   }
 
   api_userSelectSampleImage(data) {
-    return this._http.post(this.baseURL + "/user-sample-images", data)
+    return this._http.post(this.baseURL + '/user-sample-images', data);
   }
 
   api_segment(data) {
-    return this._http.post(this.baseURL + "/segment", data)
+    return this._http.post(this.baseURL + '/segment', data);
   }
 
-  api_getServerDirectory() {
-    return this._http.get(this.baseURL + "/files/output/directories")
+  api_getServerDirectories(data) {
+    return this._http.post(this.baseURL + '/folders', data);
   }
 
-
+  api_getFileContent(data) {
+    console.log(data)
+    return this._http.post(this.baseURL + '/file-contents', data);
+  }
 }

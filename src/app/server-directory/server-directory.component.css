@@ -1,8 +1,54 @@
-.content {
-    height: 0px;
-    overflow: hidden;
+.icon {
+  font-size: 50px;
 }
 
-.accordion.active .content {
-    height: auto;
+.goBackIcon {
+  color: aliceblue;
+  font-size: 30px;
+  margin-left: 10px;
 }
+
+.goBackIcon:hover {
+  cursor: pointer;
+}
+
+.current-directory-path {
+  display: flex;
+  margin-left: 75px;
+}
+
+.current-path-text {
+  font-size: 22px;
+}
+
+.directory-content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px solid white;
+  border-radius: 5px;
+  margin: 0 50px 50px 50px;
+  padding: 25px;
+}
+
+.folderWrapper,.fileWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.folderWrapper,
+.fileWrapper {
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid rgba(97, 95, 95, 0.2);
+  border-radius: 10px;
+}
+
+.folderWrapper:hover,
+.fileWrapper:hover {
+    box-shadow: 0 0 11px rgba(97, 95, 95, 0.2);
+    cursor: pointer;
+}
+

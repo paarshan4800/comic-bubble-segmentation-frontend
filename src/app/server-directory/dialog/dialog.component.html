@@ -1,0 +1,9 @@
+<div mat-dialog-content>
+    <div class="contentWrapper">
+        <img *ngIf="imgSrc" [src]="imgSrc" alt="" class="img">
+        <p *ngIf="txtFileContents">{{txtFileContents}}</p>
+    </div>
+</div>
+<div mat-dialog-actions class="buttonWrapper">
+  <button mat-button mat-dialog-close class="btn">Close</button>
+</div>

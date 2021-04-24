@@ -13,6 +13,7 @@ export class OutputComponent implements OnInit {
   panels = Array<PanelImage>();
   inputImage: String;
   localized_bubbles: String;
+  extracted_text:String;
   localized_bubbles_loader: Boolean;
   showBubblesText: Boolean;
   chosenPanel: String;
@@ -53,9 +54,11 @@ export class OutputComponent implements OnInit {
     this.localized_bubbles_loader = true;
 
     this._api.api_segment({ "filename": filename }).subscribe((data) => {
+      console.log(data)
       this.scrollDown()
       this.localized_bubbles = "http://localhost:5000/fetch-images?filepath=" + data["localized_bubbles"]
       this.chosenPanel = "http://localhost:5000/fetch-images?filepath=" + data["chosenPanel"]
+      this.extracted_text = data["extracted_string"]
       this.localized_bubbles_loader = false;
     },
       (error) => {

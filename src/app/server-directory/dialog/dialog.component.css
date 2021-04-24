@@ -1,0 +1,30 @@
+.img {
+    width: 400px;
+    height: 600px;
+}
+
+.contentWrapper {
+    color: aliceblue;
+    padding: 50px;
+}
+
+.buttonWrapper {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    background-color: orange;
+    font-family: primaryFont;
+    font-size: 20px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: rgb(145, 94, 0);
+}
