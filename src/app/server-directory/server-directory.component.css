@@ -10,6 +10,8 @@
 
 .goBackIcon:hover {
   cursor: pointer;
+  color: var(--primary);
+  transform: scale(1.3);
 }
 
 .current-directory-path {
@@ -36,19 +38,24 @@
   align-items: center;
   flex-direction: column;
   text-align: center;
-}
-
-.folderWrapper,
-.fileWrapper {
   margin: 20px;
   padding: 10px;
   border: 1px solid rgba(97, 95, 95, 0.2);
   border-radius: 10px;
 }
 
-.folderWrapper:hover,
+.folderWrapper p,.fileWrapper p {
+  font-size: 16px;
+}
+
+.folderWrapper:hover ,
 .fileWrapper:hover {
     box-shadow: 0 0 11px rgba(97, 95, 95, 0.2);
     cursor: pointer;
+}
+
+.folderWrapper:hover *,
+.fileWrapper:hover *{
+  color: var(--primary);
 }
 

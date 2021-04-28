@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
     min-height: 100vh;
     min-width: 100vw;
     opacity: 1;
@@ -12,4 +13,8 @@
     text-align: center;
     z-index: 10;
     background-color: black;
+}
+
+h1 {
+    margin-right: 20px;
 }

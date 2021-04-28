@@ -16,6 +16,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { DialogComponent } from './server-directory/dialog/dialog.component';
 
 @NgModule({
@@ -37,7 +38,8 @@ import { DialogComponent } from './server-directory/dialog/dialog.component';
     HttpClientModule,
     RouterModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent],

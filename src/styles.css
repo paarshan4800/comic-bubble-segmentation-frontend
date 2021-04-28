@@ -1,3 +1,8 @@
+:root {
+  --primary: orange;
+  --text: aliceblue;
+}
+
 @font-face {
   font-family: primaryFont;
   src: url(./assets/fonts/Oswald-Regular.ttf);
@@ -9,16 +14,22 @@ body {
 }
 
 .image-border {
-  border: 1px solid white;
+  border: 1px solid var(--text);
   padding: 15px;
   border-radius: 5px;
 }
 
+/* Dialog */
 mat-dialog-container {
   background-color: black !important;
 }
 
 .dialogBG {
-  background-color: #e6e6e6;
+  background-color: #e6e6e615;
   opacity: 0.2 !important;
+}
+
+.mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: var(--primary) !important;
 }

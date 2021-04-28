@@ -1,20 +1,17 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-bubbles-text',
   templateUrl: './bubbles-text.component.html',
-  styleUrls: ['./bubbles-text.component.css']
+  styleUrls: ['./bubbles-text.component.css'],
 })
 export class BubblesTextComponent implements OnInit {
-
   @Input() localized_bubbles: String;
   @Input() chosenPanel: String;
   @Input() loader: Boolean;
-  @Input() extracted_text:String;
+  @Input() extracted_text: String;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

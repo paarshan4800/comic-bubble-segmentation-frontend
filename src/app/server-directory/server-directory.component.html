@@ -11,7 +11,8 @@
       <p>{{ folder }}</p>
     </div>
     <div *ngFor="let file of files" class="fileWrapper" (click)="clickedFile('//' + file)">
-      <i class="fa fa-image icon"></i>
+      <!-- <i class="fa fa-image icon"></i> -->
+      <i class="fa fa-file icon"></i>
       <p>{{ file }}</p>
     </div>
   </div>
