@@ -25,9 +25,7 @@ export class ApiService {
 
   api_getSampleImages() {
     return this._http
-      .get(this.baseURL + '/sample-images', {
-        headers: httpHeaders,
-      })
+      .get(this.baseURL + '/sample-images')
       .pipe(catchError(this.errorHandler));
   }
 
@@ -38,6 +36,7 @@ export class ApiService {
   }
 
   api_userSelectSampleImage(data) {
+    console.log("SAMPLE",data);
     return this._http
       .post(this.baseURL + '/user-sample-images', data, {
         headers: httpHeaders,
@@ -69,4 +68,5 @@ export class ApiService {
       })
       .pipe(catchError(this.errorHandler));
   }
+
 }
