@@ -24,6 +24,7 @@ export class ServerDirectoryComponent implements OnInit {
   folders = [];
   stack: Stack = new Stack();
   rootDirectory: Boolean;
+  loader:Boolean
 
   data;
 
@@ -45,26 +46,37 @@ export class ServerDirectoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loader = true
     this._api.api_getServerDirectories({ path: './/output' }).subscribe(
       (data) => {
-        console.log(data);
+        this.loader = false
         this.setFoldersFiles(data);
       },
       (error) => {
+        this.loader = false
         console.log(error);
+        this._snackbar.open(error, null, {
+          duration: 2000,
+          verticalPosition: 'top',
+          horizontalPosition: 'right',
+          panelClass: ['snackbarStyle'],
+        });
       }
     );
   }
 
   clickedFolder(data) {
+    this.loader = true
     this._api
       .api_getServerDirectories({ path: this.currentDirectoryPath + data })
       .subscribe(
         (data) => {
+          this.loader = false
           this.stack.push(this.currentDirectoryPath);
           this.setFoldersFiles(data);
         },
         (error) => {
+          this.loader = false
           console.log(error);
           this._snackbar.open(error, null, {
             duration: 2000,
@@ -101,6 +113,12 @@ export class ServerDirectoryComponent implements OnInit {
       },
       (error) => {
         console.log(error);
+        this._snackbar.open(error, null, {
+          duration: 2000,
+          verticalPosition: 'top',
+          horizontalPosition: 'right',
+          panelClass: ['snackbarStyle'],
+        });
       }
     );
   }

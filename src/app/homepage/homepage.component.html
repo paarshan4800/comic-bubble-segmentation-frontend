@@ -1,24 +1,32 @@
 <div *ngIf="loader">
-  <app-loader></app-loader>
+  <app-loader [loaderMessage]="'Extracting Panels'"></app-loader>
 </div>
 <div *ngIf="!loader" class="wrapper">
 
-  <div class="preview-container">
-    <img [src]="imageSrc || '../../assets/images/upload-placeholder.png'" alt="" class="placeholder-preview image-border"
-      (click)="fileInput.click()">
+  <div>
+    <app-heading [title]="'Comic Bubble Segmentation'"></app-heading>
   </div>
 
-  <div class="button-container">
-    <label for="choose-file" class="custom-file-upload choose-file-class">
-      <input id="choose-file" type="file" (change)="onFileChanged($event)" #fileInput>
-      Select File
-    </label>
+  <div class="image-upload-wrapper">
+    <div class="preview-container">
+      <img [src]="imageSrc || '../../assets/images/upload-placeholder.png'" alt=""
+        class="placeholder-preview image-border" (click)="fileInput.click()">
+    </div>
 
-    <label for="file-upload" class="custom-file-upload file-upload-class">
-      <button id="file-upload" (click)="uploadImage()" class="btn">Upload Image</button>
-      Upload
-    </label>
+    <div class="button-container">
+      <label for="choose-file" class="custom-file-upload choose-file-class">
+        <input id="choose-file" type="file" (change)="onFileChanged($event)" #fileInput>
+        Select File
+      </label>
 
+      <label for="file-upload" class="custom-file-upload file-upload-class">
+        <button id="file-upload" (click)="uploadImage()" class="btn">Upload Image</button>
+        Upload
+      </label>
+
+    </div>
   </div>
+
+
 
 </div>

@@ -1,6 +1,13 @@
 .wrapper {
   display: flex;
   justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.image-upload-wrapper {
+  padding: 50px 0px;
+  display: flex;
+  justify-content: space-evenly;
   flex-direction: row;
 }
 

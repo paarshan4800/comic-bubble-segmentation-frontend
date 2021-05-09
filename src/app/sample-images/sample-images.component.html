@@ -3,7 +3,7 @@
     <app-heading [title]="'Sample Images'"></app-heading>
   </div>
   <div *ngIf="loader">
-    <app-loader></app-loader>
+    <app-loader [loaderMessage]="'Extracting Panels'"></app-loader>
   </div>
   <div *ngIf="!loader" class="image-container">
     <img *ngFor="let image of sampleImages" [src]="image.src" alt="" width="200px" height="300px"

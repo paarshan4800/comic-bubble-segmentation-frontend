@@ -1,4 +1,7 @@
-<div class="directory-wrapper" style="color: white">
+<div *ngIf="loader">
+  <app-loader [loaderMessage]="'Loading'"></app-loader>
+</div>
+<div class="directory-wrapper" style="color: white" *ngIf="!loader">
   <div class="current-directory-path">
     <p class="current-path-text">
       {{ formattedCurrentDirectoryPath }}

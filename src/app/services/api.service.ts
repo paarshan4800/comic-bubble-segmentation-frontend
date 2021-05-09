@@ -1,7 +1,15 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+
+const httpHeaders = new HttpHeaders({
+  'Content-Type': 'application/json',
+});
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +25,9 @@ export class ApiService {
 
   api_getSampleImages() {
     return this._http
-      .get(this.baseURL + '/sample-images')
+      .get(this.baseURL + '/sample-images', {
+        headers: httpHeaders,
+      })
       .pipe(catchError(this.errorHandler));
   }
 
@@ -29,26 +39,34 @@ export class ApiService {
 
   api_userSelectSampleImage(data) {
     return this._http
-      .post(this.baseURL + '/user-sample-images', data)
+      .post(this.baseURL + '/user-sample-images', data, {
+        headers: httpHeaders,
+      })
       .pipe(catchError(this.errorHandler));
   }
 
   api_segment(data) {
     return this._http
-      .post(this.baseURL + '/segment', data)
+      .post(this.baseURL + '/segment', data, {
+        headers: httpHeaders,
+      })
       .pipe(catchError(this.errorHandler));
   }
 
   api_getServerDirectories(data) {
     return this._http
-      .post(this.baseURL + '/folders', data)
+      .post(this.baseURL + '/folders', data, {
+        headers: httpHeaders,
+      })
       .pipe(catchError(this.errorHandler));
   }
 
   api_getFileContent(data) {
     console.log(data);
     return this._http
-      .post(this.baseURL + '/file-contents', data)
+      .post(this.baseURL + '/file-contents', data, {
+        headers: httpHeaders,
+      })
       .pipe(catchError(this.errorHandler));
   }
 }

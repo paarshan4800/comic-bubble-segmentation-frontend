@@ -51,6 +51,18 @@ export class HomepageComponent implements OnInit {
   }
 
   uploadImage() {
+
+    if (this.userFile === undefined) {
+      this._snackbar.open('Upload Image', null, {
+        duration: 2000,
+        verticalPosition: 'top',
+        horizontalPosition: 'right',
+        panelClass: ['snackbarStyle'],
+      });
+
+      return
+    }
+
     this.loader = true;
     const uploadData = new FormData();
     uploadData.append('image', this.userFile);
@@ -58,7 +70,7 @@ export class HomepageComponent implements OnInit {
     this._api.api_uploadComicImage(uploadData).subscribe(
       (data) => {
         this._dataShare.setPanels(data['inputImage'], data['panels']);
-
+        this.loader = false;
         this._router.navigateByUrl('/output');
       },
       (error) => {
@@ -72,6 +84,5 @@ export class HomepageComponent implements OnInit {
         });
       }
     );
-    this.loader = false;
   }
 }
