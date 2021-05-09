@@ -8,7 +8,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class BubblesTextComponent implements OnInit {
   @Input() localized_bubbles: String;
   @Input() chosenPanel: String;
-  @Input() loader: Boolean;
   @Input() extracted_text: String;
 
   constructor() {}

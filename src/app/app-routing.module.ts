@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoaderComponent } from './components/loader/loader.component';
+import { LoaderdialogComponent } from './components/loaderdialog/loaderdialog.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { OutputComponent } from './output/output.component';
 import { SampleImagesComponent } from './sample-images/sample-images.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: "output", component: OutputComponent },
   { path: "directory", component: ServerDirectoryComponent },
   { path: "loader", component: LoaderComponent },
+  { path: "loaderdialog", component: LoaderdialogComponent },
 ];
 
 @NgModule({

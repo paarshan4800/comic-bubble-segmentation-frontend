@@ -33,3 +33,8 @@ mat-dialog-container {
 .mat-spinner circle {
   stroke: var(--primary) !important;
 }
+
+.snackbarStyle {
+  background-color: #D70040;
+  color: white;
+}

@@ -6,6 +6,9 @@
     </p>
   </div>
   <div class="directory-content-wrapper">
+    <p style="color: white; font-size: 30px;" *ngIf="folders.length == 0 && files.length == 0">
+      No files and folders to display
+    </p>
     <div *ngFor="let folder of folders" class="folderWrapper" (click)="clickedFolder('//' + folder)">
       <i class="fa fa-folder icon"></i>
       <p>{{ folder }}</p>

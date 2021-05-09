@@ -18,6 +18,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { DialogComponent } from './server-directory/dialog/dialog.component';
+import { LoaderdialogComponent } from './components/loaderdialog/loaderdialog.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { CustomSnackbarComponent } from './components/custom-snackbar/custom-snackbar.component'
 
 @NgModule({
   declarations: [
@@ -31,6 +34,8 @@ import { DialogComponent } from './server-directory/dialog/dialog.component';
     HeadingComponent,
     LoaderComponent,
     DialogComponent,
+    LoaderdialogComponent,
+    CustomSnackbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +44,8 @@ import { DialogComponent } from './server-directory/dialog/dialog.component';
     RouterModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent],

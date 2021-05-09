@@ -1,4 +1,5 @@
 <div class="wrapper">
+
   <div class="output-wrapper">
 
     <!-- Input Image -->
@@ -19,7 +20,7 @@
     <!-- Localized Bubbles -->
 
     <div *ngIf="showBubblesText" class="bubbles-text-container" id="bubbles-text">
-      <app-bubbles-text [(loader)]="localized_bubbles_loader" [localized_bubbles]="localized_bubbles"
+      <app-bubbles-text [localized_bubbles]="localized_bubbles"
         [chosenPanel]="chosenPanel" [extracted_text]="extracted_text"></app-bubbles-text>
     </div>
 

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LoaderdialogComponent } from '../components/loaderdialog/loaderdialog.component';
 import { ApiService } from '../services/api.service';
 import { DataShareService } from '../services/data-share.service';
 
@@ -13,14 +16,15 @@ export class OutputComponent implements OnInit {
   inputImage: String;
   localized_bubbles: String;
   extracted_text: String;
-  localized_bubbles_loader: Boolean;
   showBubblesText: Boolean;
   chosenPanel: String;
 
   constructor(
     private router: Router,
     private _dataShare: DataShareService,
-    private _api: ApiService
+    private _api: ApiService,
+    private _dialog: MatDialog,
+    private _snackbar: MatSnackBar
   ) {}
 
   scrollDown() {
@@ -29,7 +33,6 @@ export class OutputComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.localized_bubbles_loader = false;
     this.showBubblesText = false;
     let temp = this._dataShare.getPanels();
 
@@ -48,26 +51,37 @@ export class OutputComponent implements OnInit {
   }
 
   clickedPanel(filename) {
+    let loaderDialogRef = this._dialog.open(LoaderdialogComponent, {
+      data: {
+        message: 'Localizing Bubbles and Extracting Text',
+      },
+    });
+
     this.showBubblesText = true;
-    this.localized_bubbles_loader = true;
 
     this._api.api_segment({ filename: filename }).subscribe(
       (data) => {
-        console.log(data);
+        loaderDialogRef.close();
+        console.log('OP', data);
         this.localized_bubbles =
           'http://localhost:5000/fetch-images?filepath=' +
           data['localized_bubbles'];
         this.chosenPanel =
           'http://localhost:5000/fetch-images?filepath=' + data['chosenPanel'];
         this.extracted_text = data['extracted_string'];
-        this.localized_bubbles_loader = false;
+        this.scrollDown();
       },
       (error) => {
+        loaderDialogRef.close();
         console.log(error);
+        this._snackbar.open(error, null, {
+          duration: 2000,
+          verticalPosition: 'top',
+          horizontalPosition: 'right',
+          panelClass: ['snackbarStyle'],
+        });
       }
     );
-
-    this.scrollDown();
   }
 }
 
