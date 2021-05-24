@@ -15,7 +15,7 @@ export class OutputComponent implements OnInit {
   panels = Array<PanelImage>();
   inputImage: String;
   localized_bubbles: String;
-  extracted_text: String;
+  extracted_text: any;
   showBubblesText: Boolean;
   chosenPanel: String;
 

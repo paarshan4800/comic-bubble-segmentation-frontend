@@ -14,6 +14,7 @@ import { DataShareService } from '../services/data-share.service';
 export class SampleImagesComponent implements OnInit {
   sampleImages = Array<SampleImage>();
   loader: Boolean = false;
+  loaderMessage: String = 'Loading';
 
   constructor(
     private _api: ApiService,
@@ -25,6 +26,7 @@ export class SampleImagesComponent implements OnInit {
 
   ngOnInit(): void {
     this.loader = true;
+    this.loaderMessage = 'Retrieving Sample Images';
     this._api.api_getSampleImages().subscribe(
       (data) => {
         for (let i = 0; i < data['images'].length; i++) {
@@ -39,6 +41,7 @@ export class SampleImagesComponent implements OnInit {
         this.loader = false;
       },
       (error) => {
+        this.loader = false;
         console.log(error);
       }
     );
@@ -46,6 +49,7 @@ export class SampleImagesComponent implements OnInit {
 
   clickedImage(fileName) {
     this.loader = true;
+    this.loaderMessage = 'Extracting Panels';
     this._api.api_userSelectSampleImage({ filename: fileName }).subscribe(
       (data) => {
         console.log(data);
