@@ -1,27 +1,34 @@
-# ComicBubbleSegmentationFrontend
+# Detection and Segmentation of Speech Bubbles from Comic Images
+Speech Bubbles in comic images are segmented and its text are extracted.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.3.
+This repository contains the UI part of the project developed using Angular. You can find the server code [here](https://github.com/paarshan4800/comic-bubble-segmentation).
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Setup
+- Download and Install [Node.js](https://nodejs.org/en/)
+- Install Angular CLI by running ```npm install -g @angular/cli```
 
-## Code scaffolding
+## Launching the application
+- Run ```npm install``` to install the required dependencies.
+- Run ```ng serve``` to start the Angular Server.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Screenshots
+Homepage | Sample Images
+------------ | -------------
+![Homepage](screenshots/homepage.png) | ![Sample Images](screenshots/sample_images.png) 
 
-## Build
+Extracted Panels | Extracted Text
+------------ | -------------
+![GitHub Logo](screenshots/output_1.png) | ![GitHub Logo](screenshots/output_2.png) 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Navbar | Server Directory
+------------ | -------------
+![GitHub Logo](screenshots/navbar.png) | ![GitHub Logo](screenshots/server_directory.png) 
 
-## Running unit tests
+Server Directory | Server Directory Contents
+------------ | -------------
+![GitHub Logo](screenshots/server_directory_1.png) | ![GitHub Logo](screenshots/server_directory_1_1.png) 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Server Directory | Server Directory Contents
+------------ | -------------
+![GitHub Logo](screenshots/server_directory_2.png) | ![GitHub Logo](screenshots/server_directory_2_1.png) 
