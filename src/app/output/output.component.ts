@@ -62,7 +62,6 @@ export class OutputComponent implements OnInit {
     this._api.api_segment({ filename: filename }).subscribe(
       (data) => {
         loaderDialogRef.close();
-        console.log('OP', data);
         this.localized_bubbles =
           'http://localhost:5000/fetch-images?filepath=' +
           data['localized_bubbles'];
@@ -73,7 +72,6 @@ export class OutputComponent implements OnInit {
       },
       (error) => {
         loaderDialogRef.close();
-        console.log(error);
         this._snackbar.open(error, null, {
           duration: 2000,
           verticalPosition: 'top',

@@ -75,7 +75,6 @@ export class HomepageComponent implements OnInit {
       },
       (error) => {
         this.loader = false;
-        console.log(error);
         this._snackbar.open(error, null, {
           duration: 2000,
           verticalPosition: 'top',

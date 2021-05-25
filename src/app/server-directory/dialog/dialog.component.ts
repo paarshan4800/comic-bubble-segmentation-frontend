@@ -36,7 +36,6 @@ export class DialogComponent implements OnInit {
             this.txtFileContents = data['fileContents'];
           },
           (error) => {
-            console.log(error);
             this._snackbar.open(error, null, {
               duration: 2000,
               verticalPosition: 'top',

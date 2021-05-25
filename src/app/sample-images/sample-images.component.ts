@@ -42,7 +42,6 @@ export class SampleImagesComponent implements OnInit {
       },
       (error) => {
         this.loader = false;
-        console.log(error);
       }
     );
   }
@@ -52,14 +51,12 @@ export class SampleImagesComponent implements OnInit {
     this.loaderMessage = 'Extracting Panels';
     this._api.api_userSelectSampleImage({ filename: fileName }).subscribe(
       (data) => {
-        console.log(data);
         this._dataShare.setPanels(data['inputImage'], data['panels']);
         this.loader = false;
         this._router.navigateByUrl('/output');
       },
       (error) => {
         this.loader = false;
-        console.log(error);
         this._snackbar.open(error, null, {
           duration: 2000,
           verticalPosition: 'top',

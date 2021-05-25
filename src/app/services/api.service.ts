@@ -36,7 +36,6 @@ export class ApiService {
   }
 
   api_userSelectSampleImage(data) {
-    console.log("SAMPLE",data);
     return this._http
       .post(this.baseURL + '/user-sample-images', data, {
         headers: httpHeaders,
@@ -61,7 +60,6 @@ export class ApiService {
   }
 
   api_getFileContent(data) {
-    console.log(data);
     return this._http
       .post(this.baseURL + '/file-contents', data, {
         headers: httpHeaders,

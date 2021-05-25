@@ -54,7 +54,6 @@ export class ServerDirectoryComponent implements OnInit {
       },
       (error) => {
         this.loader = false
-        console.log(error);
         this._snackbar.open(error, null, {
           duration: 2000,
           verticalPosition: 'top',
@@ -77,7 +76,6 @@ export class ServerDirectoryComponent implements OnInit {
         },
         (error) => {
           this.loader = false
-          console.log(error);
           this._snackbar.open(error, null, {
             duration: 2000,
             verticalPosition: 'top',
@@ -112,7 +110,6 @@ export class ServerDirectoryComponent implements OnInit {
         this.setFoldersFiles(data);
       },
       (error) => {
-        console.log(error);
         this._snackbar.open(error, null, {
           duration: 2000,
           verticalPosition: 'top',

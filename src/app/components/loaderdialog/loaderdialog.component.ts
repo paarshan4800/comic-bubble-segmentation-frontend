@@ -11,6 +11,5 @@ export class LoaderdialogComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
 
   ngOnInit(): void {
-    console.log('FROM LOADER DIALOG', this.data);
   }
 }
